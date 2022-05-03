@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * Timer.createTimer().startWith(100, 20);
+ * new HPMemoryTimer().startWith(100, 20);
  *
  * @author songcf
  * @version : Timer.java
@@ -34,6 +34,11 @@ public class HPMemoryTimer extends AbstractLoopRunnable {
     private       TimeWheel          timeWheel;
     private       ExecutorService    threadPoolExecutor;
 
+    /**
+     * 启动
+     * @param tickMilliSecond 每一轮间隔的毫秒数
+     * @param wheelSize 单个时间轮大小
+     */
     public void startWith(int tickMilliSecond, int wheelSize) {
         this.startWith(tickMilliSecond, wheelSize, Executors.newFixedThreadPool(4));
     }
